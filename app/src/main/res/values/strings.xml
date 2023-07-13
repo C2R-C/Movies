@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Movies</string>
+    <string name="popular_movies">Popular Movies</string>
+    <string name="top_rated_movies">Top Rated Movies</string>
+    <string name="upcoming_movies">Upcoming Movies</string>
+    <string name="rv_recyclerView_description">Listado desplegable de películas</string>
+    <string name="detail_img_background">Imagen de fondo de la pelicula</string>
+    <string name="iv_image_movie">imagen pelicula</string>
+    <string name="iv_bookmark">etiquetar</string>
+    <string name="tv_bookmark">Bookmark</string>
+    <string name="iv_favorites">Favoritos</string>
+    <string name="tv_favorite">Favorite</string>
+    <string name="iv_share">Compartir</string>
+    <string name="tv_share">Share</string>
+    <string name="tv_overview">Overview</string>
+    <string name="tv_lorem_ipso">En esos momentos en que la vida se vuelve insoportable, cuando te sientas solo con las manos en la cabeza y piensas, ¿dónde está Dios ahora? Las lágrimas se derramaban por tus mejillas. Acabas de perder tu trabajo. Acabas de perder un amigo. Has tenido un día muy duro. Quizás has tenido un largo periodo</string>
 </resources>
