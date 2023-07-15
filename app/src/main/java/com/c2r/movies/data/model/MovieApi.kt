@@ -1,10 +1,10 @@
 package com.c2r.movies.data.model
 
-data class Movie(
-    val id: Int = -1,
+data class MovieApi(
     val adult: Boolean = false,
-    val genre_ids: List<Int> = listOf(),
     val backdrop_path: String = "",
+    val genre_ids: List<Int> = listOf(),
+    val id: Int = -1,
     val original_language: String = "",
     val original_title: String = "",
     val overview: String = "",

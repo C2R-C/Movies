@@ -1,14 +1,27 @@
 package com.c2r.movies.repository
 
-import com.c2r.movies.data.model.MovieList
+import com.c2r.movies.data.model.MovieUIList
+import com.c2r.movies.data.model.mapper.MovieMapper
 import com.c2r.movies.data.remote.MovieDataSource
+import com.c2r.movies.utils.mapToUI
+
 
 class MovieRepositoryImp(private val movieDataSource: MovieDataSource) : MovieRepository {
 
-    override suspend fun getUpComingMovies(): MovieList = movieDataSource.getUpComingMovies()
+    override suspend fun getUpComingMovies(): MovieUIList {
+        val movieApiList = movieDataSource.getUpComingMovies().results
+        return movieApiList.mapToUI { movie -> MovieMapper.mapToUI(movie) }
+    }
+    override suspend fun getTopRatedMovies(): MovieUIList {
+        val movieApiList = movieDataSource.getTopRatedMovies().results
+        val movieUIList = movieApiList.mapToUI { movieUI -> MovieMapper.mapToUI(movieUI) }
+        return movieUIList as MovieUIList
+    }
 
-    override suspend fun getTopRatedMovies(): MovieList = movieDataSource.getTopRatedMovies()
-
-    override suspend fun getPopularMovies(): MovieList = movieDataSource.getPopularMovies()
+    override suspend fun getPopularMovies(): MovieUIList {
+        val movieApiList = movieDataSource.getPopularMovies().results
+        val movieUIList = movieApiList.mapToUI { movie -> MovieMapper.mapToUI(movie) }
+        return movieUIList as MovieUIList
+    }
 
 }

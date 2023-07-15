@@ -8,16 +8,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.c2r.movies.application.AppConstants
 import com.c2r.movies.core.BaseViewHolder
-import com.c2r.movies.data.model.Movie
+import com.c2r.movies.data.model.MovieUI
 import com.c2r.movies.databinding.MovieItemBinding
 
 class MovieAdapter(
-    private val moviesList: List<Movie>,
+    private val moviesList: List<MovieUI>,
     private val itemClickListener: OnMovieClickListener
 ) : RecyclerView.Adapter<BaseViewHolder<*>>() {
 
     interface OnMovieClickListener {
-        fun onMovieClick(movie: Movie)
+        fun onMovieClick(movieUI: MovieUI)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
@@ -46,9 +46,9 @@ class MovieAdapter(
         val binding: MovieItemBinding,
         val context: Context
     ) :
-        BaseViewHolder<Movie>(binding.root) {
-        override fun bind(item: Movie) {
-            Glide.with(context).load("${AppConstants.BASE_URL_IMAGE}${item.poster_path}")
+        BaseViewHolder<MovieUI>(binding.root) {
+        override fun bind(item: MovieUI) {
+            Glide.with(context).load("${AppConstants.BASE_URL_IMAGE}${item.imgMovie}")
                 .centerCrop().into(binding.imgMovie)
         }
 

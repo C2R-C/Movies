@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ConcatAdapter
 import com.c2r.movies.R
 import com.c2r.movies.core.Resource
-import com.c2r.movies.data.model.Movie
+import com.c2r.movies.data.model.MovieUI
 import com.c2r.movies.data.remote.MovieDataSource
 import com.c2r.movies.databinding.FragmentMovieBinding
 import com.c2r.movies.presentation.MovieViewModel
@@ -90,16 +90,16 @@ class MovieFragment : Fragment(R.layout.fragment_movie), MovieAdapter.OnMovieCli
 
     }
 
-    override fun onMovieClick(movie: Movie) {
+    override fun onMovieClick(movieUI: MovieUI) {
         val action = MovieFragmentDirections.actionMovieFragmentToMovieDetailFragment(
-            movie.poster_path,
-            movie.backdrop_path,
-            movie.title,
-            movie.vote_average.toFloat(),
-            movie.vote_count,
-            movie.overview,
-            movie.original_language,
-            movie.release_date
+            movieUI.imgMovie,
+            movieUI.imgBackground,
+            movieUI.title,
+            movieUI.voteAverage.toFloat(),
+            movieUI.voteCount,
+            movieUI.description,
+            movieUI.language,
+            movieUI.release
         )
         findNavController().navigate(action)
     }

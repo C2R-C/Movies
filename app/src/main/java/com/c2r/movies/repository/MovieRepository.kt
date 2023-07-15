@@ -1,12 +1,12 @@
 package com.c2r.movies.repository
 
-import com.c2r.movies.data.model.MovieList
+import com.c2r.movies.data.model.MovieUIList
 
 interface MovieRepository {
 
-    suspend fun getUpComingMovies(): MovieList
+    suspend fun getUpComingMovies(): MovieUIList
 
-    suspend fun getTopRatedMovies(): MovieList
+    suspend fun getTopRatedMovies(): MovieUIList
 
-    suspend fun getPopularMovies(): MovieList
+    suspend fun getPopularMovies(): MovieUIList
 }
