@@ -1,5 +1,6 @@
 package com.c2r.movies.presentation
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.c2r.movies.core.Resource

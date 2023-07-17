@@ -10,18 +10,19 @@ class MovieRepositoryImp(private val movieDataSource: MovieDataSource) : MovieRe
 
     override suspend fun getUpComingMovies(): MovieUIList {
         val movieApiList = movieDataSource.getUpComingMovies().results
-        return movieApiList.mapToUI { movie -> MovieMapper.mapToUI(movie) }
+        val movieList = movieApiList.mapToUI { movieApi -> MovieMapper.mapToUI(movieApi) }
+        return MovieUIList(movieList)
     }
     override suspend fun getTopRatedMovies(): MovieUIList {
         val movieApiList = movieDataSource.getTopRatedMovies().results
-        val movieUIList = movieApiList.mapToUI { movieUI -> MovieMapper.mapToUI(movieUI) }
-        return movieUIList as MovieUIList
+        val movieList = movieApiList.mapToUI { movieApi -> MovieMapper.mapToUI(movieApi) }
+        return MovieUIList(movieList)
     }
 
     override suspend fun getPopularMovies(): MovieUIList {
         val movieApiList = movieDataSource.getPopularMovies().results
-        val movieUIList = movieApiList.mapToUI { movie -> MovieMapper.mapToUI(movie) }
-        return movieUIList as MovieUIList
+        val movieList = movieApiList.mapToUI { movieApi -> MovieMapper.mapToUI(movieApi) }
+        return MovieUIList(movieList)
     }
 
 }

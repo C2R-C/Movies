@@ -47,14 +47,14 @@ class MovieFragment : Fragment(R.layout.fragment_movie), MovieAdapter.OnMovieCli
                     binding.progressBar.visibility = View.VISIBLE
                 }
                 is Resource.Success -> {
-                    Log.d("VER", "${it.data.first}")
+                    Log.d("VER1", "${it.data.first}")
                     binding.progressBar.visibility = View.GONE
                     concatAdapter.apply {
                         addAdapter(
                             0,
                             UpcomingConcatAdapter(
                                 MovieAdapter(
-                                    it.data.first.results,
+                                    it.data.first.data,
                                     this@MovieFragment
                                 )
                             )
@@ -63,7 +63,7 @@ class MovieFragment : Fragment(R.layout.fragment_movie), MovieAdapter.OnMovieCli
                             1,
                             TopRateConcatAdapter(
                                 MovieAdapter(
-                                    it.data.second.results,
+                                    it.data.second.data,
                                     this@MovieFragment
                                 )
                             )
@@ -72,7 +72,7 @@ class MovieFragment : Fragment(R.layout.fragment_movie), MovieAdapter.OnMovieCli
                             2,
                             PopularConcatAdapter(
                                 MovieAdapter(
-                                    it.data.third.results,
+                                    it.data.third.data,
                                     this@MovieFragment
                                 )
                             )

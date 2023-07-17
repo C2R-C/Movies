@@ -11,3 +11,5 @@ data class MovieUI(
     val voteAverage: Double = -1.0,
     val voteCount: Int = -1
 )
+
+data class MovieUIList (val data: List<MovieUI> = listOf())
