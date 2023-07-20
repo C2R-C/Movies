@@ -16,6 +16,9 @@ gen/
 # Local configuration file (sdk path, etc)
 local.properties
 /key.properties
+
+# Key file
+app/src/main/java/com/c2r/movies/application/Private.kt
                          
 # Windows thumbnail db
 Thumbs.db

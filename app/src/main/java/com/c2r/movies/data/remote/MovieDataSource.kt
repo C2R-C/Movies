@@ -6,6 +6,7 @@ import com.c2r.movies.repository.WebService
 
 class MovieDataSource(private val webService: WebService) {
 
+
     suspend fun getUpComingMovies(): MovieApiList = webService.getUpcomingMovies(AppConstants.API_KEY, AppConstants.SPANISH)
 
     suspend fun getTopRatedMovies(): MovieApiList = webService.getTopRatedMovies(AppConstants.API_KEY, AppConstants.SPANISH)
