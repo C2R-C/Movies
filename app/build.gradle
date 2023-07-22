@@ -10,6 +10,11 @@ android {
     namespace 'com.c2r.movies'
     compileSdk 33
 
+    // Habilita el uso de variables custom
+    buildFeatures {
+        buildConfig = true
+    }
+
     defaultConfig {
         applicationId "com.c2r.movies"
         minSdk 24
@@ -19,10 +24,11 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        def properties = new Properties()
-        file("/home/c2r/AndroidStudioProjects/Movies/local.properties").withInputStream {
-            properties.load(it)
-        }
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file("local.properties").newDataInputStream())
+
+        // variable custom
+        buildConfigField "String", "API_KEY", "\"${properties.getProperty("API_KEY")}\""
 
     }
 
@@ -76,9 +82,6 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-
-    // Dotenv
-    implementation 'io.github.cdimascio:dotenv-kotlin:6.2.2'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

@@ -1,13 +1,17 @@
 package com.c2r.movies.ui.movie
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ConcatAdapter
 import com.c2r.movies.R
+import com.c2r.movies.application.AppConstants
 import com.c2r.movies.core.Resource
 import com.c2r.movies.data.model.MovieUI
 import com.c2r.movies.data.remote.MovieDataSource
@@ -89,6 +93,7 @@ class MovieFragment : Fragment(R.layout.fragment_movie), MovieAdapter.OnMovieCli
         }
 
     }
+
 
     override fun onMovieClick(movieUI: MovieUI) {
         val action = MovieFragmentDirections.actionMovieFragmentToMovieDetailFragment(
